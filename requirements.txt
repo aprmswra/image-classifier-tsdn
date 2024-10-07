@@ -7,3 +7,4 @@ Werkzeug==2.2.2
 gevent==22.10.2
 pytest 
 pytest-mock
+numpy
