@@ -15,7 +15,7 @@ from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 
 CLASSES = ['Bacterial leaf blight', 'Brown spot', 'Healthy', 'Leaf smut']
-MODEL_PATH = './model/rice_model_desease.hdf5'
+MODEL_PATH = 'rice_model_desease.hdf5'
 model = load_model(MODEL_PATH)
 model.make_predict_function()
 
