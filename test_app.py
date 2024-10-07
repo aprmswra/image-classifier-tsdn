@@ -20,7 +20,7 @@ def test_image_classification_route(client):
 
 def test_predict_post(client, mocker):
     data = {
-        'file': (io.BytesIO(b'test image data'), '.\test_image\spot-_0_5088.jpg')
+        'file': (io.BytesIO(b'test image data'), r'.\uploads\spot-_0_5088.jpg')
     }
     mocker.patch('app.model_predict', return_value='Mocked_Label')
     response = client.post('/predict', content_type='multipart/form-data', data=data)
