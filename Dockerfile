@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install --no-cache-dir --upgrade pip
 RUN pip install -r requirements.txt 
-RUN pip install numpy --upgrade
+RUN pip install numpy --upgrade --ignore-installed
 ENV LISTEN_PORT=5000
 EXPOSE 5000
 ENV FLASK_APP=app.py
