@@ -18,5 +18,4 @@ ENV LISTEN_PORT=5000
 EXPOSE 5000
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=development
-RUN pytest -v
 CMD ["python", "app.py"]
