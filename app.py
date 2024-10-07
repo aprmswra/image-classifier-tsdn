@@ -38,9 +38,7 @@ def index():
 @app.route('/predict', methods=['POST'])
 def upload():
     f = request.files['file']
-    basepath = os.path.dirname(__file__)
-    file_path = os.path.join(
-        basepath, '/', secure_filename(f.filename))
+    file_path = secure_filename(f.filename)
     f.save(file_path)
     label = model_predict(file_path, model)
     result = label
