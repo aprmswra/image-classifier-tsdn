@@ -15,7 +15,7 @@ from gevent.pywsgi import WSGIServer
 app = Flask(__name__)
 
 CLASSES = ['Bacterial leaf blight', 'Brown spot', 'Healthy', 'Leaf smut']
-MODEL_PATH = '/model/rice_model_desease.hdf5'
+MODEL_PATH = './model/rice_model_desease.hdf5'
 model = load_model(MODEL_PATH)
 model.make_predict_function()
 
@@ -35,22 +35,21 @@ def model_predict(img_path, model):
 def index():
     return render_template('index.html')
 
-@app.route('/predict', methods=['GET', 'POST'])
+@app.route('/predict', methods=['POST'])
 def upload():
-    if request.method == 'POST':
-        f = request.files['file']
-        basepath = os.path.dirname(__file__)
-        file_path = os.path.join(
-            basepath, 'uploads', secure_filename(f.filename))
-        f.save(file_path)
-        label = model_predict(file_path, model)
-        result = label
-        return result
-    return None
+    f = request.files['file']
+    basepath = os.path.dirname(__file__)
+    file_path = os.path.join(
+        basepath, 'uploads', secure_filename(f.filename))
+    f.save(file_path)
+    label = model_predict(file_path, model)
+    result = label
+    print(f"result: {result}")
+    return result
 
 @app.route('/')
 def home():
-    return "Hello, Server is running!"
+    return "Server is running!"
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
