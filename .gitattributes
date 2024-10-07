@@ -1,1 +1,1 @@
-*.hdf5 filter=lfs diff=lfs merge=lfs -text
+rice_model_desease.hdf5 filter=lfs diff=lfs merge=lfs -text
