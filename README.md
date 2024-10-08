@@ -6,7 +6,7 @@ This project is a **Rice Image Classification** website designed to recognize di
 - **Image Classification**: Detects and classifies various rice leaf diseases.
 - **Automated Deployment**: Continuous Integration and Continuous Deployment (CI/CD) pipeline ensures seamless updates.
 - **Containerization**: Docker ensures consistent environments across development and production.
-- **Cloud Deployment**: Hosted on AWS ECS for scalability and reliability.
+- **Cloud Deployment**: Hosted on AWS ECS for scalability and reliability (Still Manual Deployment)
 
 ## Prerequisites
 
